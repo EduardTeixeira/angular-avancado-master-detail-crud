@@ -32,18 +32,20 @@
         </tr>
     </thead>
     <tbody>
-        <td>
-            <strong>Lazer</strong>
-            <br>
-            <small>Cinema, parque, praia e etc</small>
-        </td>
-        <td>
-            <a [routerLink]="[12, 'edit']" class="btn btn-outline-info btn-sm">
-                Editar
-            </a>
-            <button (click)="1" class="btn btn-outline-danger btn-sm">
-                Excluir
-            </button>
-        </td>
+        <tr *ngFor="let category of categories">
+            <td>
+                <strong> {{ category.name }} </strong>
+                <br>
+                <small> {{ category.description }} </small>
+            </td>
+            <td>
+                <a [routerLink]="[category.id, 'edit']" class="btn btn-outline-info btn-sm">
+                    Editar
+                </a>
+                <button (click)="deleteCategory(category)" class="btn btn-outline-danger btn-sm">
+                    Excluir
+                </button>
+            </td>
+        </tr>
     </tbody>
 </table>
